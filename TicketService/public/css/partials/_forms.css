@@ -1,0 +1,69 @@
+input,
+textarea,
+select {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid rgba(23, 23, 197, 0.45);
+    font-size: 1.5rem;
+    outline: none;
+    resize: none;
+    white-space: pre-wrap;
+}
+select {
+    background-color: white;
+}
+input:focus,
+textarea:focus,
+select:focus {
+    box-shadow: 0 0 5px 2px rgb(7, 132, 250);
+}
+input.input--error,
+textarea.input--error,
+select.input--error {
+    border-color: red;
+}
+label {
+    padding: 10px 0;
+    font-size: 2rem;
+    display: block;
+}
+.form {
+    background: white;
+    padding: 2rem;
+    box-shadow: linear-gradient(90deg, #48ded4 0%, #e82c75 35%, rgb(255, 196, 0) 75%, #33e2d7 95%);
+}
+.form {
+    margin-top: 4rem;
+    padding: 5rem;
+    margin-bottom: 1rem;
+}
+.form h2 {
+    margin: 0;
+    width: 95%;
+    font-size: 3rem;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgb(52, 52, 233);
+}
+
+input.button {
+    margin-top: 2rem;
+    background-color: rgb(20, 87, 212);
+    color: whitesmoke;
+    cursor: pointer;
+}
+input.button.save {
+    color: whitesmoke;
+    background: rgb(31, 177, 31);
+}
+input.button.save:hover {
+    background: rgb(46, 219, 46);
+}
+input.button:hover {
+    background-color: rgb(31, 107, 247);
+}
+form p.info {
+    font-size: 2rem;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+}

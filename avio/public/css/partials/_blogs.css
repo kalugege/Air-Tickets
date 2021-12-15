@@ -1,0 +1,111 @@
+.blogs {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1.25em 0 0 -1.25em;
+}
+
+.blog {
+    background: white;
+    margin: 1.5em 1rem 1em 0;
+    width: calc(33.3333% - 1.25em);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05);
+    animation: down2Up 0.5s ease-in-out 1 forwards;
+}
+
+.blog--wide {
+    width: 100%;
+}
+.blog__details {
+    padding: 2rem;
+}
+.blog__details p {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin-bottom: 0;
+    font-family: 'Roboto', sans-serif;
+}
+@media all and (max-width: 850px) {
+    .blog {
+        width: calc(50% - 1.25em);
+    }
+}
+@media all and (max-width: 550px) {
+    .blog {
+        width: 100%;
+    }
+}
+.blog__actions {
+    position: relative;
+    z-index: 2;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.2);
+    margin-bottom: 50px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: space-around;
+}
+.blog__action {
+    font-size: 10px;
+}
+.blog__action svg {
+    height: 25px;
+    width: 25px;
+    fill: white;
+}
+.blog__action--edit a {
+    border-bottom: 0;
+    cursor: pointer;
+}
+.blog__action--edit:hover {
+    transform: scale(1.1);
+}
+.blog__hero {
+    position: relative;
+    padding: 0 10px 0 10px;
+    text-align: right;
+}
+.blog__hero:before {
+    display: block;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background: linear-gradient(
+            45deg,
+            rgba(5, 179, 214, 1) 0%,
+            rgba(5, 179, 214, 0) 70%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(9, 88, 236, 1) 10%,
+            rgba(9, 88, 236, 0) 80%
+        ),
+        linear-gradient(315deg, rgb(225, 75, 5) 100%, rgba(5, 225, 41, 0) 70%);
+    opacity: 0.6;
+    z-index: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+}
+.blog__hero img {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    position: absolute;
+    left: 0;
+    object-fit: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+}
+
+@keyframes down2Up {
+    0% {
+        transform: translateY(70%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}

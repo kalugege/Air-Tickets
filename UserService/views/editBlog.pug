@@ -1,0 +1,10 @@
+extends layout
+
+include mixins/_blogForm
+
+block content
+    .inner
+        h2= title.toUpperCase()
+        +blogForm(blog) 
+
+    script(src="/javacripts/preventSubmit.js")

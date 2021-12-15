@@ -1,0 +1,22 @@
+mixin pagination (page, pages, count)
+    .pagination
+        .pagination__prev
+            if page > 1
+                a(href=`/flights/page/${page - 1}`) Prev
+        .pagination__text
+            p Page #{page} of #{pages} - #{count} total results
+        .pagination__next
+            if page < pages
+                a(href=`/flights/page/${parseInt(page) + 1}`) Next
+
+
+mixin allFlightsPagination (page, pages, count)
+    .pagination
+        .pagination__prev
+            if page > 1
+                a(href=`/allflights/page/${page - 1}`) Prev
+        .pagination__text
+            p Page #{page} of #{pages} - #{count} total results
+        .pagination__next
+            if page < pages
+                a(href=`/allflights/page/${parseInt(page) + 1}`) Next

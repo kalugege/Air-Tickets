@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    .single
+        .single__hero
+            img.single__image(src=`/uploads/${blog.photo || 'blog.png'}`, alt="blog photo")
+            h2.title.title--single
+                a(href=`/blog/${blog.slug}`) #{blog.title}
+
+    - const date = `${blog.created.getDate()}-${blog.created.getMonth()}-${blog.created.getFullYear()}`
+    - const texts = blog.text.split('\n')
+    .single__details.inner
+        p.single__date= date
+        for text in texts 
+            p= text
+    

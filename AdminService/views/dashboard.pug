@@ -1,0 +1,84 @@
+extends layout
+
+
+block content
+    .menu
+        a(href="/admin/dashboard/flights" class=(currentPath.startsWith('/admin/dashboard/flights') ? 'menu__link--active' : '')) 
+            p Flights
+        a(href="/admin/dashboard/airplanes" class=(currentPath.startsWith('/admin/dashboard/airplanes') ? 'menu__link--active' : ''))
+            p Airplanes
+    
+    .dashboard
+        .list
+            if flights
+                for flight in flights
+                    if flight.canceled == true
+                        .flight(class='canceled')
+                            .section
+
+                                p.date!= `${h.dayOfWeek(flight.departure)}, ${h.format(flight.departure,  "DD MMM YYYY")}`
+    
+                                p.time!= `${flight.departure.getHours()}:${flight.departure.getMinutes() < 10 ?  `0${flight.departure.getMinutes()}` : flight.departure.getMinutes()}`
+                                p.direction!= `${flight.from}`
+                            .plane
+                                img.plane(src="/images/icons/plane.svg", alt="")
+                                //- p!= flight.airplane.name
+                                p.duration!= h.msToTime(flight.duration)
+
+                            .section
+                                p.time!= `${flight.arrival.getHours()}:${flight.arrival.getMinutes() < 10 ?  `0${flight.arrival.getMinutes()}` : flight.arrival.getMinutes()}`
+                                p.direction!= `${flight.to}`
+                            
+                            .section
+                                p.price Price: #{flight.price} &euro;
+                               
+                    else 
+                        .flight(class=(flight.departure < Date.now()? 'passed' : ''))
+                            .section 
+                                p.date!= `${h.dayOfWeek(flight.departure)}, ${h.format(flight.departure,  "DD MMM YYYY")}`
+
+                                p.time!= `${flight.departure.getHours()}:${flight.departure.getMinutes() < 10 ?  `0${flight.departure.getMinutes()}` : flight.departure.getMinutes()}`
+                                p.direction!= `${flight.from}`
+                            .plane
+                                img.plane(src="http://localhost:7777/images/icons/plane.svg", alt="")
+                                //- p!= flight.airplane.name
+                                p.duration!= h.msToTime(flight.duration)
+
+                            .section
+                                p.time!= `${flight.arrival.getHours()}:${flight.arrival.getMinutes() < 10 ?  `0${flight.arrival.getMinutes()}` : flight.arrival.getMinutes()}`
+                                p.direction!= `${flight.to}`
+                            
+                            .section
+                                p.price Price: #{flight.price} &euro;
+                                if flight.departure > Date.now()
+                                    form(action=`/admin/flight/${flight._id}/delete/` method="POST")
+                                        button(class='delete' type='submit') Cancel
+
+
+                    
+            if airplanes
+                for airplane in airplanes
+                    .airplane
+                        .section
+                            p.name!= airplane.name
+                            p.capacity!= `Capacity:  ${airplane.capacity}`
+                        
+                        .section
+
+                            form(action=`/admin/airplane/${airplane._id}/delete/` method="POST")
+
+                                if (airplane.active == undefined || airplane.active < Date.now())
+                                    button(class='delete' type='submit') Delete
+                                else
+                                    button(class='delete' type='submit' disabled) Delete
+
+
+//-         
+//- from
+//- to
+//- duration
+//- price
+//- departure
+//- arrival
+//- passengersNumbe
+//- airplane 

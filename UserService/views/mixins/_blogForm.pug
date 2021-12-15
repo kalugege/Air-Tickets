@@ -1,0 +1,15 @@
+mixin blogForm(blog = {})
+    form(action=`/add/${blog._id || ''}` method="POST" enctype='multipart/form-data' class= 'card' )
+        label(for="title") Title
+        input(type="text" name='title' value=blog.title required)
+       
+        label(for="photo") Photo
+        input(type="file" name='photo' id='photo' accept='image/git, image/png, image/jpg, image/jpeg')
+        if blog.photo
+            img(src=`/uploads/${blog.photo}`, alt="blog photo" width='200px')
+        label(for="text") Text
+        textarea(name="text", cols="30", rows="10" required)= blog.text
+        input(type="submit" value='SAVE' class='button save' name='save' id='save' )
+        if blog._id
+            input(type="submit" value='DELETE' class='button' name='delete' )
+

@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 4.5rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+h2 {
+    display: flex;
+    align-items: center;
+}
+h2 a.redirect {
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    border: 1px solid rgba(23, 44, 236, 0.829);
+    text-decoration: none;
+    background-color: rgba(0, 26, 255, 0.9);
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.2s;
+    margin-left: auto;
+}
+h2 a.redirect:hover {
+    background-color: rgb(0, 26, 255);
+    color: white;
+}
+
+.button {
+    border: 0;
+    background: rgb(226, 226, 34);
+    color: black;
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+}
+.button.save {
+    background: rgb(33, 179, 33);
+}
+
+.card {
+    background: white;
+    padding: 5rem;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
+}
+
+.title {
+    word-wrap: break-word;
+    color: black;
+    position: relative;
+    margin: 0;
+    font-size: 3.5rem;
+    z-index: 2;
+    transform: skew(0, -3deg);
+    line-height: 1.1;
+}
+
+.title a {
+    color: black;
+    padding: 0.5rem;
+    border-bottom: 0;
+    background: linear-gradient(to right, rgba(255, 217, 0, 0.8) 70%, rgba(255, 81, 0, 0.6) 100%);
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    text-shadow: 0 0 3px rgb(24, 56, 53);
+}
+
+.title--single {
+    max-width: 600px;
+    margin-top: -9rem;
+    font-size: 10rem;
+    text-align: center;
+}
+
+.avatar {
+    width: 70px;
+    border-radius: 50%;
+}
+
+pre.error {
+    padding: 5rem;
+    background: white;
+    line-height: 3;
+    white-space: pre-line;
+}

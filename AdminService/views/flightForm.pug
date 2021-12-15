@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    .inner 
+        form(method="POST" class= 'form card')
+            h2 Add Flight
+            label(for="from") From
+            input(type="text" name='from' required)
+            label(for="to") To
+            input(type="text" name='to' required)
+            label(for="departure") Departure Time
+            input(type="datetime-local" name='departure' required)
+            label(for="arrival") Arrival Time
+            input(type="datetime-local" name='arrival' required)
+            label(for="price") Price
+            input(type="number" name='price' required)
+            label(for="airplane") Airplane
+            select(name="airplane") 
+                for airplane in airplanes
+                    option(value=airplane._id)= airplane.name
+            input(type="submit" value='Save Flight' class='button save' name='save')

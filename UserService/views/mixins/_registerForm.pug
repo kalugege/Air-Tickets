@@ -1,0 +1,16 @@
+mixin registerForm(body={})
+    form.form(action="/register" method="POST")
+        h2 Register
+        label(for="name") Name
+        input(type="text" name='name' value=body.name required)
+        label(for="surname") Surname
+        input(type="text" name='surname' value=body.surname required)
+        label(for="email") Email Address
+        input(type="email" name='email' value=body.email required) 
+        label(for="passportNumber") Passport Number
+        input(type="number" name='passportNumber' value=body.passportNumber required)
+        label(for="password") Password
+        input(type="password" name='password' required)
+        label(for="password-confirm") Confirm Password
+        input(type="password" name="password-confirm" required)
+        input(type="submit" value="Register" name="register" class="button save")

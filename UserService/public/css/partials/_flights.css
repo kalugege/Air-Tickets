@@ -1,0 +1,84 @@
+.flight {
+    position: relative;
+    width: 100%;
+    margin: 2rem 0;
+    height: 15rem;
+    background-color: rgba(20, 114, 121, 0.7);
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.flight.canceled {
+    opacity: 0.5;
+    background-color: red;
+}
+.flight.passed {
+    opacity: 0.5;
+}
+.flight .section {
+    position: relative;
+    padding: 1rem 1.5rem;
+    height: 100%;
+    width: 30%;
+    /* background-color: rgba(255, 0, 0, 0.7); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.flight .section a.delete {
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    border: 1px solid rgba(255, 0, 0, 0.7);
+    text-decoration: none;
+    background-color: rgba(255, 0, 0, 0.6);
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.2s;
+}
+.flight .section a.delete:hover {
+    background-color: rgba(255, 0, 0, 0.7);
+    color: white;
+}
+
+.flight p.direction {
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+    color: rgba(0, 0, 0, 0.7);
+    margin: 0;
+}
+
+.flight p.time {
+    font-size: 3rem;
+    font-family: 'Lato', sans-serif;
+    margin: 1rem 0;
+}
+
+img.plane {
+    width: 50px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.plane p {
+    margin: 1rem 0;
+}
+.flight p.duration {
+    font-size: 1.2rem;
+    text-align: center;
+}
+.flight p.price {
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+p.date {
+    position: relative;
+    margin: 0;
+    margin-top: -1.5rem;
+    /* top: 0.8rem;
+    left: 5.5rem; */
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+}

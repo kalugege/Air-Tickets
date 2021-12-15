@@ -1,0 +1,24 @@
+extends layout
+
+include mixins/_flight
+
+block content
+    .inner 
+        //- pre= h.dump(user)
+        //- pre= h.dump(flight)
+        form(method="POST" class= 'form card')
+            if user
+                h2= `Hi ${user.name}!`
+                    if user.card.length > 0
+                        a.card(href=`/user/${user._id}/addcard`) Add Card             
+                if user.card.length > 0
+                    label(for="card") Select card for payment:
+                    select(name="card") 
+                        for card in user.card
+                            option(value=card._id)=`Card: ${card.cardNumber}`
+                    +flight(flight)
+                    input(type="submit" value='Buy tickets' class='button save' name='buy')
+                else
+                    p.info Please add card to finish payment.
+                    a.card(href=`/user/${user._id}/addcard`) Add Card             
+                    input(type="submit" value='Buy tickets' class='button save' name='buy' disabled)

@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    .inner 
+        form(method="POST" class= 'form card')
+            h2 Add Flight
+            label(for="name") From
+            input(type="text" name='name' required)
+            label(for="capacity") Capacity
+            input(type="number" name='capacity' required)
+            input(type="submit" value='Save Flight' class='button save' name='save')

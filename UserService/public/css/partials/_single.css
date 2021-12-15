@@ -1,0 +1,66 @@
+.single__hero {
+    height: 700px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2vw), 0% 100%);
+}
+.single__hero:before {
+    display: block;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background: linear-gradient(
+            45deg,
+            rgba(5, 179, 214, 1) 0%,
+            rgba(5, 179, 214, 0) 70%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(9, 88, 236, 1) 10%,
+            rgba(9, 88, 236, 0) 80%
+        ),
+        linear-gradient(315deg, rgb(225, 75, 5) 100%, rgba(5, 225, 41, 0) 70%);
+    opacity: 0.6;
+    z-index: 1;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2vw), 0% 100%);
+}
+.single__image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+.single__details {
+    background: white;
+    position: relative;
+    padding: 3rem;
+    margin-top: -10rem;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+    margin-bottom: 5rem;
+}
+
+.single__date {
+    margin: 1rem;
+    margin-top: -3rem;
+    margin-right: -5rem;
+    background: black;
+    color: white;
+    display: inline-block;
+    float: right;
+    position: relative;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+}
+.single__details p {
+    font-size: 2rem;
+    font-family: 'Roboto', sans-serif;
+}

@@ -1,0 +1,13 @@
+extends layout
+
+
+//- ako forma nema action onda je action kao trenutni URL
+block content
+    .inner 
+        form.form(method='POST') 
+            h2 Reset Your Password
+            label(for="password") Password
+            input(type="password" name='password' required)
+            label(for="password-confirm") Confirm Password
+            input(type="password" name='password-confirm' required)
+            input.button(type="submit" value="Reset Password")

@@ -1,0 +1,11 @@
+@import './partials/_normalize.css';
+@import './partials/_nav.css';
+@import './partials/_inner.css';
+@import './partials/_forms.css';
+@import './partials/_helpers.css';
+@import './partials/_blogs.css';
+@import './partials/_single.css';
+@import './partials/_flashes.css';
+@import './partials/_flights.css';
+@import './partials/_pagination.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');

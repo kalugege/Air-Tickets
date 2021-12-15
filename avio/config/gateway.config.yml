@@ -1,0 +1,108 @@
+# todo sve css fajlove da dignemo u folderu gde je gateway
+http:
+    port: 8080
+
+apiEndpoints:
+    userAPI:
+        host: '127.0.0.1'
+        paths:
+            [
+                '/',
+                '/account/',
+                '/account/*',
+                '/login',
+                '/flights/*',
+                '/logout',
+                '/ad',
+                '/register',
+                '/ticket/*',
+                '/accountadmin',
+                '/resetPassword',
+                '/getUserInfo',
+                '/update/*',
+                '/mytickets',
+                '/downgrade/rank',
+                '/sendemail',
+                '/allflights',
+                '/allflights/*',
+            ]
+
+    adminAPI:
+        host: '127.0.0.1'
+        paths:
+            [
+                '/admin/*',
+                '/search',
+                '/search/*',
+                '/getInfo',
+                '/account',
+                '/logout',
+                '/flightsInfo',
+                '/getAllFlights',
+                '/downgrade/passengers',
+            ]
+    ticketAPI:
+        host: '127.0.0.1'
+        paths:
+            [
+                '/tickets',
+                '/tickets/buy',
+                '/tickets/*',
+                '/user/*',
+                '/redirect/*',
+                '/logout',
+                '/getTicketInfo/',
+                '/getTickets',
+                '/account/',
+                '/cancelTicket',
+            ]
+
+serviceEndpoints:
+    userService:
+        url: 'http://127.0.0.1:8000'
+    adminService:
+        url: 'http://127.0.0.1:7777'
+    ticketService:
+        url: 'http://127.0.0.1:8888'
+
+policies:
+    - basic-auth
+    - cors
+    - expression
+    - key-auth
+    - log
+    - proxy
+    - rate-limit
+pipelines:
+    userPipeline:
+        apiEndpoints:
+            - userAPI
+        policies:
+            # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+            # - key-auth:
+            - proxy:
+                  - action:
+                        serviceEndpoint: userService
+                        changeOrigin: true
+
+    adminPipeline:
+        apiEndpoints:
+            - adminAPI
+        policies:
+            # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+            # - key-auth:
+            - proxy:
+                  - action:
+                        serviceEndpoint: adminService
+                        changeOrigin: true
+
+    ticketPipeline:
+        apiEndpoints:
+            - ticketAPI
+        policies:
+            # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+            # - key-auth:
+            - proxy:
+                  - action:
+                        serviceEndpoint: ticketService
+                        changeOrigin: true

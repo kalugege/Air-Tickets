@@ -1,0 +1,65 @@
+doctype html
+html
+  head
+    title= `${title} | ${h.siteName}`
+    link(rel='stylesheet', href='http://localhost:8000/dist/style.css', type="text/css")
+    link(rel="shortcut icon" type="image/png" href="http://localhost:8000/images/icons/logo.svg")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel='styelsheet', href='https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap', type='text/css')
+    
+    
+  body
+    block header
+      header.top
+        nav.nav
+          .nav__section.nav__section--pages
+            li.nav__item
+              a.nav__link.nav__link--logo(href="/")
+                != h.icon('logo')
+            each item in h.menu
+              li.nav__item
+                a.nav__link(href=item.slug, class=(currentPath.startsWith(item.slug) ? 'nav__link--active' : ''))
+                  != h.icon(item.icon)
+                  span #{item.title}
+          
+          .nav__section.nav__section--user
+            //- ako je ulogovan user prikaze se jedan nav ako nije drugi
+           
+            if user
+              if user.isAdmin
+                li.nav__item: a.nav__link(href="/ad", class=(currentPath.startsWith('/admin') ? 'nav__link--active' : ''))
+                  span Admin Page
+              li.nav__item: a.nav__link(href="/logout", class=(currentPath.startsWith('/logout') ? 'nav__link--active' : ''))
+                != h.icon('logout')
+                span Logout
+              li.nav__item: a.nav__link(href="/account", title='Account settings' class=(currentPath.startsWith('/account') ? 'nav__link--active' : ''))
+                //- globaly recognised avatar (service za )
+
+                if user
+                  img.avatar(src=user.gravatar width='200' class= user.rank > 10000 ? 'gold' : (user.rank > 1000 ? 'silver' : 'bronze'))
+        
+            else
+              li.nav__item: a.nav__link(href="/register", class=(currentPath.startsWith('/register') ? 'nav__link--active' : '')) Register
+              li.nav__item: a.nav__link(href="/login", class=(currentPath.startsWith('/login') ? 'nav__link--active' : '')) Log In
+              
+
+    block messages
+      if locals.flashes
+        .inner 
+          .flash-messages
+            - const categories = Object.keys(locals.flashes)
+            each category in categories
+              each message in flashes[category]
+                .flash(class=`flash--${category}`)
+                  p.flash__text!= message
+                  button.flash__remove(onClick="this.parentElement.remove()") &times;
+
+    .content
+      block content
+        p This is the default
+
+    block scripts
+      script(src=`https://maps.googleapis.com/maps/api/js?key=${process.env.MAP_KEY}&libraries=places`)
+      script(src="http://localhost:8000/dist/App.bundle.js")
+      script(src="http://localhost:8000/dist/Submit.bundle.js")
+

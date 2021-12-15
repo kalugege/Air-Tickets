@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    .inner
+        form(method="POST" class= 'form card')
+           h2 Search
+           label(for="origin") Origin
+           input(type="text" name='origin' required)
+           label(for="destination") Destionation
+           input(type="text" name='destination' required)
+           label(for="departure") Departure 
+           input(type="date" name='departure'  value='DD-MM-YYYY' required)
+           label(for="return") Return
+           input(type="date" name='return' )
+           label(for="passengers") Passengers
+           input(type="number" name='passengers' required)
+           input(type="submit" value='Search' class='button save' name='search')
+
+
+           
+    

@@ -1,0 +1,10 @@
+extends layout
+
+include mixins/_blogCard
+
+block content
+    .inner
+        h2= title.toUpperCase() 
+        .blogs
+            each blog in blogs 
+                +blogCard(blog)

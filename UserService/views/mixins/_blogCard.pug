@@ -1,0 +1,14 @@
+mixin blogCard(blog = {})
+    .blog
+        .blog__hero
+            .blog__actions
+                if user &&blog.author.equals(user._id)
+                    .blog__action.blog__action--edit
+                        a(href=`/blogs/${blog._id}/edit/`)
+                            != h.icon('pencil')
+            img(src=`/uploads/${blog.photo || 'blog.png'}`, alt="blog photo")
+            h2.title   
+                a(href=`/blog/${blog.slug}`) #{blog.title}
+        .blog__details
+            p= blog.text.split(' ').slice(0, 30).join(' ')
+             

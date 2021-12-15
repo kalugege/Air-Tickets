@@ -1,0 +1,36 @@
+extends layout
+
+include mixins/_pagination
+
+block content
+    .inner
+        
+        if flightsDeparture
+            h2 All Flights 
+               
+            for flight in flightsDeparture
+                .flight
+                    .section
+                        p.date!= `${h.dayOfWeek(new Date(flight.departure))}, ${h.format(new Date(flight.departure),  "dd MMM yyyy")}`
+
+                        p.time!= `${(new Date(flight.departure)).getHours()}:${(new Date(flight.departure)).getMinutes() < 10 ?  `0${(new Date(flight.departure)).getMinutes()}` : (new Date(flight.departure)).getMinutes()}`
+                        p.direction!= `${flight.from}`
+                    .plane
+                        img.plane(src="http://localhost:8000/images/icons/plane.svg", alt="")
+                        p.duration!= h.msToTime(flight.duration)
+
+                    .section
+                        p.time!= `${(new Date(flight.arrival)).getHours()}:${(new Date(flight.arrival)).getMinutes() < 10 ?  `0${(new Date(flight.arrival)).getMinutes()}` : (new Date(flight.arrival)).getMinutes()}`
+
+
+                        p.direction!= `${flight.to}`
+                    
+                    .section
+                        p.price Price: #{flight.price} &euro;
+
+        
+
+        +allFlightsPagination(page, pages, count)
+
+
+            

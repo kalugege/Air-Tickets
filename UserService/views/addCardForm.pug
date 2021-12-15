@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    .inner 
+        form(method="POST" class= 'form card')
+            h2 Add Credit card
+            label(for="name") Name
+            input(type="text" name='name' required)
+            label(for="surname") Surname 
+            input(type="text" name='surname' required)
+            label(for="number") Card Number
+            input(type="number" name='number' required)
+            label(for="pin") PIN
+            input(type="password" name='pin' required)
+            input(type="submit" value='Add Card' class='button save' name='save')

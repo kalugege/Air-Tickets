@@ -1,0 +1,41 @@
+.pagination {
+    position: absolute;
+    bottom: 0;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    background: white;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+}
+.pagination__next {
+    flex: 0 0 auto;
+    padding: 1rem 3rem 1rem 1rem;
+}
+.pagination__next a:after {
+    margin-left: 1rem;
+    font-size: 2rem;
+}
+.pagination__prev {
+    flex: 0 0 auto;
+    padding: 1rem 1rem 1rem 3rem;
+}
+.pagination__prev a:before {
+    margin-right: 1rem;
+    font-size: 2rem;
+}
+.pagination__text {
+    flex: 3 0 auto;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+}
+.pagination a {
+    font-family: 'Roboto', sans-serif;
+    text-decoration: underline;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 1.5rem;
+    margin: 0 1rem;
+}
